@@ -1,1 +1,5 @@
 https://felixduvallet.github.io/blog/deep.time/
+https://towardsdatascience.com/keras-transfer-learning-for-beginners-6c9b8b7143e
+https://towardsdatascience.com/transfer-learning-for-image-classification-using-keras-c47ccf09c8c8
+https://medium.com/@vijayabhaskar96/tutorial-on-keras-flow-from-dataframe-1fd4493d237c
+https://techblog.appnexus.com/a-keras-multithreaded-dataframe-generator-for-millions-of-image-files-84d3027f6f43

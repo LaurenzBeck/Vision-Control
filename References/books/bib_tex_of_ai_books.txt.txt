@@ -1,0 +1,33 @@
+@book{goodfellow_bengio_courville_2017,
+place={Cambridge, Mass},
+title={Deep learning},
+publisher={The MIT Press},
+author={Goodfellow, Ian and Bengio, Yoshua and Courville, Aaron},
+year={2017}
+},
+
+@book{marsland_2014,
+place={Boca Raton},
+edition={2},
+title={Machine Learning An Algorithmic Perspective},
+publisher={Chapman & Hall/CRC},
+author={Marsland, Stephen},
+year={2014}
+},
+
+@misc{ng_2019,
+title={Machine Learning | Coursera},
+url={https://www.coursera.org/learn/machine-learning},
+journal={Coursera},
+author={Ng, Andrew},
+year={2019}
+},
+
+@book{russell_norvig_2010,
+place={New Jersey},
+edition={3},
+title={Artificial intelligence A Modern Approach},
+publisher={Pearson Education},
+author={Russell, Stuart and Norvig, Peter},
+year={2010}
+}

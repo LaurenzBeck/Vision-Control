@@ -5,3 +5,4 @@ https://medium.com/@vijayabhaskar96/tutorial-on-keras-flow-from-dataframe-1fd449
 https://techblog.appnexus.com/a-keras-multithreaded-dataframe-generator-for-millions-of-image-files-84d3027f6f43
 https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html
 https://medium.com/datadriveninvestor/install-tensorflow-gpu-to-use-nvidia-gpu-on-ubuntu-18-04-do-ai-71b0ce64ebc5
+https://www.programiz.com/python-programming/working-csv-files

@@ -61,9 +61,9 @@ void setup() {
 
 void loop() {
   float r = 0;
-  float y = 0;
+  float y = encoder_radian();
   float e = 0;
-  float u = 0;
+  float u = 0.5;
   motor(u);
 
   debug(r,y,e,u);
@@ -72,12 +72,12 @@ void loop() {
 
 void debug(float r, float y, float e, float u)
 {
-  char rstr[6];
-  char ystr[6];
-  char estr[6];
-  char ustr[6];
+  char rstr[9];
+  char ystr[9];
+  char estr[9];
+  char ustr[9];
   dtostrf(r, 5, 2, &rstr[0]);
-  dtostrf(y, 5, 2, &ystr[0]);
+  dtostrf(y, 8, 4, &ystr[0]);
   dtostrf(e, 5, 2, &estr[0]);
   dtostrf(u, 5, 2, &ustr[0]);
 
@@ -108,7 +108,7 @@ void motor(float voltage)
 
 float encoder_radian()
 {
-  return ((float)ticks) * 0.0015;
+  return ((float)ticks) * 0.00153398;
 }
 
 void encoder_interrupt()

@@ -82,7 +82,7 @@ void loop() {
   float u = 0;
 
   unsigned long dT = micros() - last;
-  if (dT > 25000)
+  if (dT > 10000)
   {
     y = encoder_radian();
     e = r - y;

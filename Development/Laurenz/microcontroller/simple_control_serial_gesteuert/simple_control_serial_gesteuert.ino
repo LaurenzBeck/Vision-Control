@@ -6,7 +6,7 @@ volatile uint8_t state_new = 0;
 volatile bool dir = true;
 
 String in;
-float r = 5;
+float r = 0;
 
 void setup() {
   // Setup Serial Port
@@ -45,7 +45,7 @@ void loop() {
   }
   float y = encoder_radian();
   float e = r - y;
-  float u = e*35;
+  float u = e*10;
   motor(u);
 
   debug(r,y,e,u);

@@ -4,6 +4,12 @@ volatile long ticks = 0;
 volatile uint8_t state_old = 0;
 volatile uint8_t state_new = 0;
 volatile bool dir = true;
+volatile unsigned long last = 0;
+
+volatile float e_1 = 0;
+volatile float u_1 = 0;
+volatile float e_2 = 0;
+volatile float u_2 = 0;
 
 class PulseGenerator {
   private:
@@ -23,11 +29,23 @@ class PulseGenerator {
 
   int step()
   {
-    return 0;
+    double passed = (double)(millis() - _start)/1000;
+
+    if (passed > (_period*_duty))
+    {
+      _state = false;
+    }
+
+    if (passed > _period)
+    {
+      _state = true;
+      _start = millis();
+    }
+    return _state ? 1:0;
   }
 };
 
-PulseGenerator ref(2, 0.1);
+PulseGenerator ref(4, 0.5);
 
 void setup() {
   // Setup Serial Port
@@ -60,14 +78,31 @@ void setup() {
 }
 
 void loop() {
-  float r = 0;
+  float r = ref.step() * PI/6;
+  //float r = 1;
   float y = 0;
   float e = 0;
-  float u = 1;
-  motor(u);
+  float u = 0;
 
-  debug(r,y,e,u);
-  delay(10);
+  unsigned long dT = micros() - last;
+  if (dT > 10000)
+  {
+    y = encoder_radian();
+    e = r - y;
+    u =  13.37 * e + 0.66 * e_1 - 12.7 * e_2 + 1.1 * u_1 - 0.1 * u_2;
+    //u= 5 * e;
+    motor(u);
+
+    u_2 = u_1;
+    e_2 = e_1;
+
+    u_1 = u;
+    e_1 = e;
+    
+    last = micros();
+    
+    debug(r,y,e,u);
+  }
 }
 
 void debug(float r, float y, float e, float u)

@@ -4,48 +4,10 @@ volatile long ticks = 0;
 volatile uint8_t state_old = 0;
 volatile uint8_t state_new = 0;
 volatile bool dir = true;
-volatile unsigned long last = 0;
 
-volatile float e_1 = 0;
-volatile float u_1 = 0;
-volatile float e_2 = 0;
-volatile float u_2 = 0;
-
-class PulseGenerator {
-  private:
-    double _period;
-    double _duty;
-    bool _state;
-    unsigned long _start;
-
-  public:
-    PulseGenerator(double period, double duty) 
-    {
-      _period = period;
-      _duty = duty;
-      _state = true;
-      _start = millis();
-  }
-
-  int step()
-  {
-    double passed = (double)(millis() - _start)/1000;
-
-    if (passed > (_period*_duty))
-    {
-      _state = false;
-    }
-
-    if (passed > _period)
-    {
-      _state = true;
-      _start = millis();
-    }
-    return _state ? 1:0;
-  }
-};
-
-PulseGenerator ref(4, 0.5);
+String in;
+float r = 0;
+float relative_change = 0;
 
 void setup() {
   // Setup Serial Port
@@ -78,31 +40,27 @@ void setup() {
 }
 
 void loop() {
-  float r = ref.step() * PI;
-  //float r = 1;
-  float y = 0;
-  float e = 0;
-  float u = 0;
-
-  unsigned long dT = micros() - last;
-  if (dT > 10000)
-  {
-    y = encoder_radian();
-    e = r - y;
-    //u =  13.37 * e + 0.66 * e_1 - 12.7 * e_2 + 1.1 * u_1 - 0.1 * u_2;
-    u= 7 * e;
-    motor(0);
-
-    u_2 = u_1;
-    e_2 = e_1;
-
-    u_1 = u;
-    e_1 = e;
-    
-    last = micros();
-    
-    debug(r,y,e,u);
+  if( Serial.available()){
+    in = Serial.readStringUntil('\n');
+    r = r + in.toFloat();
   }
+  float y = encoder_radian();
+  float e = r - y;
+  float u = e*15;
+  motor(u);
+
+  //debug(r,y,e,u);
+  //debug_ticks(ticks, y);
+  send_y(y);
+  delay(10);
+}
+
+void send_y(float y){
+  char ystr[6];
+  dtostrf(y, 5, 2, &ystr[0]);
+  char debug[8];
+  sprintf(debug, "%s", ystr);
+  Serial.println(debug);
 }
 
 void debug(float r, float y, float e, float u)
@@ -121,6 +79,15 @@ void debug(float r, float y, float e, float u)
   Serial.println(debug);
 }
 
+void debug_ticks(long ticks, float y)
+{
+  char ystr[8];
+  char debug[42];
+  dtostrf(y, 7, 4, &ystr[0]);
+  sprintf(debug, "y in ticks: %lu ; y in radians: %s", ticks, ystr);
+  Serial.println(debug);   
+}
+
 void motor(float voltage)
 {
   // Saturation
@@ -129,13 +96,11 @@ void motor(float voltage)
   if (voltage < -12.0)
     voltage = -12.0;
 
-  // Toggle Direction
   if (voltage > 0)
     digitalWrite(8, LOW);
   else
     digitalWrite(8, HIGH);
 
-  // Update PWM Register
   volatile short out = abs((short)(voltage * 42.5833));
   OCR1AH = out >> 8;
   OCR1AL = (unsigned char)out;
@@ -143,20 +108,23 @@ void motor(float voltage)
 
 float encoder_radian()
 {
-  return ((float)ticks) * 0.0015;
+  return ((float)ticks) * 0.00153398;
+}
+
+long encoder_ticks()
+{
+  return ticks;
 }
 
 void encoder_interrupt()
 {
-  // Get New State
   state_new = 0;
   if (PIND & (1 << PD2))
     state_new |= 0x01;
   if (PIND & (1 << PD3))
     state_new |= 0x02;
 
-  // Depending on Old-State, increase or decrease ticks
-  switch (state_new)
+    switch (state_new)
   {
     case 1:
       if (state_old == 3)

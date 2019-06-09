@@ -91,7 +91,7 @@ void loop() {
   float y = encoder_radian();
   float e = r - y;
   float u = e*35;
-  motor(u);
+  motor(2);
 
   debug(r,y,e,u);
   delay(1);

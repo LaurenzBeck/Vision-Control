@@ -39,6 +39,41 @@ void setup() {
   pinMode(8, OUTPUT);
 }
 
+class YValid {
+  private:
+    unsigned long valid_since;
+  public:
+  YValid() {
+    valid_since = 0;
+  }
+  
+  int is_valid(float r, float y)
+  {
+    if (y > (r - (r*0.02)) && y < (r + (r*0.02)))
+    {
+      if (valid_since == 0)
+      {
+        valid_since = micros(); 
+      }
+
+      unsigned long dT = micros() - valid_since;
+      
+      if (dT > 1000000) 
+      {
+        return 1;
+      }
+      else 
+      {
+        return 0;
+      }
+    }
+    valid_since = 0;
+    return 0;
+  }
+};
+
+YValid checker = YValid();
+
 void loop() {
   if( Serial.available()){
     in = Serial.readStringUntil('\n');
@@ -51,14 +86,16 @@ void loop() {
 
   //debug(r,y,e,u);
   //debug_ticks(ticks, y);
-  send_y(y);
+  send_y(r, y);
   delay(10);
 }
 
-void send_y(float y){
+void send_y(float r, float y){
   char ystr[6];
   dtostrf(y, 5, 2, &ystr[0]);
   char debug[8];
+  Serial.print(checker.is_valid(r, y));
+  Serial.print(',');
   sprintf(debug, "%s", ystr);
   Serial.println(debug);
 }

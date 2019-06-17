@@ -58,7 +58,7 @@ class YValid {
 
       unsigned long dT = micros() - valid_since;
       
-      if (dT > 1000000) 
+      if (dT > 75000) 
       {
         return 1;
       }
@@ -84,7 +84,7 @@ void loop() {
   float u = e*15;
   motor(u);
 
-  //debug(r,y,e,u);
+  //debug(r,y,e,u); 0.5
   //debug_ticks(ticks, y);
   send_y(r, y);
   delay(10);

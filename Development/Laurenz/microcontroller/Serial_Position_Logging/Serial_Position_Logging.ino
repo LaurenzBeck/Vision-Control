@@ -6,7 +6,7 @@ volatile uint8_t state_new = 0;
 volatile bool dir = true;
 
 String in;
-float r = 0;
+float r = 0.01;
 float relative_change = 0;
 
 void setup() {
@@ -49,7 +49,7 @@ class YValid {
   
   int is_valid(float r, float y)
   {
-    if (y > (r - (r*0.02)) && y < (r + (r*0.02)))
+    if (y > (r - (r*0.05)) && y < (r + (r*0.05)))
     {
       if (valid_since == 0)
       {
@@ -58,7 +58,7 @@ class YValid {
 
       unsigned long dT = micros() - valid_since;
       
-      if (dT > 75000) 
+      if (dT > 50000) 
       {
         return 1;
       }
@@ -78,10 +78,12 @@ void loop() {
   if( Serial.available()){
     in = Serial.readStringUntil('\n');
     r = r + in.toFloat();
+    //if (r > 2*PI) r-=2*PI;
+    //if (r<0) r+=2*PI;
   }
   float y = encoder_radian();
   float e = r - y;
-  float u = e*15;
+  float u = e*18;
   motor(u);
 
   //debug(r,y,e,u); 0.5
@@ -189,4 +191,6 @@ void encoder_interrupt()
       break;
   }
   state_old = state_new;
+  //if (ticks == 4096) ticks = 0;
+  //if (ticks == -1) ticks = 4095;
 }

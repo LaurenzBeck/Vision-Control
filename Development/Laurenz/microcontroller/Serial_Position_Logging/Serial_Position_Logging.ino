@@ -4,9 +4,10 @@ volatile long ticks = 0;
 volatile uint8_t state_old = 0;
 volatile uint8_t state_new = 0;
 volatile bool dir = true;
+volatile unsigned long timestamp = 0;
 
 String in;
-float r = 0.01;
+float r = 0.0;
 float relative_change = 0;
 
 void setup() {
@@ -49,7 +50,7 @@ class YValid {
   
   int is_valid(float r, float y)
   {
-    if (y > (r - (r*0.05)) && y < (r + (r*0.05)))
+    if (y > (r - (r*0.025)) && y < (r + (r*0.025)))
     {
       if (valid_since == 0)
       {
@@ -58,7 +59,7 @@ class YValid {
 
       unsigned long dT = micros() - valid_since;
       
-      if (dT > 50000) 
+      if (dT > 60000) 
       {
         return 1;
       }
@@ -77,19 +78,22 @@ YValid checker = YValid();
 void loop() {
   if( Serial.available()){
     in = Serial.readStringUntil('\n');
-    r = r + in.toFloat();
+    r = in.toFloat();
     //if (r > 2*PI) r-=2*PI;
     //if (r<0) r+=2*PI;
   }
-  float y = encoder_radian();
-  float e = r - y;
-  float u = e*18;
-  motor(u);
 
-  //debug(r,y,e,u); 0.5
-  //debug_ticks(ticks, y);
-  send_y(r, y);
-  delay(10);
+  unsigned long dT = micros() - timestamp;
+
+  if (dT >= 10000)
+  {
+    float y = encoder_radian();
+    float e = r - y;
+    float u = e*18;
+    motor(u);
+    timestamp = micros();
+    send_y(r, y);
+  }
 }
 
 void send_y(float r, float y){
@@ -98,8 +102,12 @@ void send_y(float r, float y){
   char debug[8];
   Serial.print(checker.is_valid(r, y));
   Serial.print(',');
-  sprintf(debug, "%s", ystr);
-  Serial.println(debug);
+  //sprintf(debug, "%s", ystr);
+  Serial.print(ystr);
+  Serial.print(',');
+  char rstr[6];
+  dtostrf(r, 5, 2, &rstr[0]);
+  Serial.println(rstr);
 }
 
 void debug(float r, float y, float e, float u)

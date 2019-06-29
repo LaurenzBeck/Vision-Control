@@ -45,7 +45,7 @@ class PulseGenerator {
   }
 };
 
-PulseGenerator ref(4, 0.5);
+PulseGenerator ref(1, 0.5);
 
 void setup() {
   // Setup Serial Port
@@ -78,20 +78,31 @@ void setup() {
 }
 
 void loop() {
-  float r = ref.step() * PI;
+  float r = ref.step() * PI/10;
   //float r = 1;
   float y = 0;
   float e = 0;
   float u = 0;
 
   unsigned long dT = micros() - last;
-  if (dT > 10000)
+  if (dT > 5000)
   {
     y = encoder_radian();
     e = r - y;
     //u =  13.37 * e + 0.66 * e_1 - 12.7 * e_2 + 1.1 * u_1 - 0.1 * u_2;
-    u= 7 * e;
-    motor(0);
+    //u =  16 * e + 0.4 * e_1 - 14 * e_2 + 1.0003 * u_1 - 0.3 * u_2;
+    ///u =  15 * e + 0.9 * e_1 - 10.5 * e_2 + 1.0003 * u_1 - 0.3 * u_2; // super kandidat
+    //u =  15 * e + 0.9 * e_1 - 10.5 * e_2 + 1.0003 * u_1 - 0.3 * u_2; // super kandidat 2
+    //u =  15 * e + 0.5 * e_1 - 10 * e_2 + 1.0006 * u_1 - 0.39 * u_2; // super kandidat 2 5000
+    //u =  15 * e + 0.5 * e_1 - 8 * e_2 + 1.0006 * u_1 - 0.39 * u_2; // super kandidat 2 5000
+    //u =  15 * e + 0.5 * e_1 - 8 * e_2 + 1.1 * u_1 - 0.36 * u_2; // super kandidat 2 5000
+    //u =  15 * e + 0.5 * e_1 - 8 * e_2 + 1.1 * u_1 - 0.62 * u_2; // super kandidat 2 5000
+    u =  15 * e + 0.5 * e_1 - 9 * e_2 + 1.2 * u_1 - 0.6 * u_2; // super kandidat 2 5000
+    //u =  13.37 * e + 0.66 * e_1 - 12.7 * e_2 + 1.1 * u_1 - 0.1 * u_2;
+    //u =  13.37 * e + 0.66 * e_1 - 12.7 * e_2 + 1.1 * u_1 - 0.1 * u_2;
+    //u =  13.37 * e + 0.66 * e_1 - 12.7 * e_2 + 1.1 * u_1 - 0.1 * u_2;
+    //u= 15 * e;
+    motor(u);
 
     u_2 = u_1;
     e_2 = e_1;
@@ -117,7 +128,7 @@ void debug(float r, float y, float e, float u)
   dtostrf(u, 5, 2, &ustr[0]);
 
   char debug[26];
-  sprintf(debug, "%s,%s,%s,%s", ystr, rstr, estr, ustr);
+  sprintf(debug, "%s,%s", ystr, rstr);
   Serial.println(debug);
 }
 

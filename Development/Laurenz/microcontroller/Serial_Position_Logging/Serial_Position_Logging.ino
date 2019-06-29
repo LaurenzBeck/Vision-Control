@@ -50,7 +50,7 @@ class YValid {
   
   int is_valid(float r, float y)
   {
-    if (y > (r - (r*0.025)) && y < (r + (r*0.025)))
+    if (y > (r - (r*0.004)) && y < (r + (r*0.004))) // 0.025
     {
       if (valid_since == 0)
       {
@@ -59,7 +59,7 @@ class YValid {
 
       unsigned long dT = micros() - valid_since;
       
-      if (dT > 60000) 
+      if (dT > 50000) // 60000
       {
         return 1;
       }
@@ -67,8 +67,9 @@ class YValid {
       {
         return 0;
       }
-    }
+    } else {
     valid_since = 0;
+    }
     return 0;
   }
 };
@@ -89,7 +90,7 @@ void loop() {
   {
     float y = encoder_radian();
     float e = r - y;
-    float u = e*18;
+    float u = e*22; // 18
     motor(u);
     timestamp = micros();
     send_y(r, y);

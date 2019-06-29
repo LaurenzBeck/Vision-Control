@@ -6,3 +6,5 @@ https://techblog.appnexus.com/a-keras-multithreaded-dataframe-generator-for-mill
 https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html
 https://medium.com/datadriveninvestor/install-tensorflow-gpu-to-use-nvidia-gpu-on-ubuntu-18-04-do-ai-71b0ce64ebc5
 https://www.programiz.com/python-programming/working-csv-files
+https://datascience.stackexchange.com/questions/24986/parameterization-regression-of-rotation-angle
+https://towardsdatascience.com/advanced-keras-constructing-complex-custom-losses-and-metrics-c07ca130a618

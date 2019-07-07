@@ -8,3 +8,4 @@ https://medium.com/datadriveninvestor/install-tensorflow-gpu-to-use-nvidia-gpu-o
 https://www.programiz.com/python-programming/working-csv-files
 https://datascience.stackexchange.com/questions/24986/parameterization-regression-of-rotation-angle
 https://towardsdatascience.com/advanced-keras-constructing-complex-custom-losses-and-metrics-c07ca130a618
+https://www.kaggle.com/amarjeet007/visualize-cnn-with-keras

@@ -1302,6 +1302,82 @@
           ]
         },
         {
+          "name": "Arduino megaAVR Boards",
+          "architecture": "megaavr",
+          "version": "1.8.2",
+          "category": "Arduino",
+          "help": {
+            "online": "http://www.arduino.cc/en/Reference/HomePage"
+          },
+          "url": "http://downloads.arduino.cc/cores/megaavr-1.8.2.tar.bz2",
+          "archiveFileName": "megaavr-1.8.2.tar.bz2",
+          "checksum": "SHA-256:0f59e2d9e5f7b7b80ca3bc54cef00beb653c9a9b6454166dfb0e17cd2160a377",
+          "size": "840041",
+          "boards": [
+            {
+              "name": "Arduino Uno WiFi Rev2"
+            },
+            {
+              "name": "Arduino Nano Every"
+            }
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "arduino",
+              "name": "avr-gcc",
+              "version": "7.3.0-atmel3.6.1-arduino5"
+            },
+            {
+              "packager": "arduino",
+              "name": "avrdude",
+              "version": "6.3.0-arduino16"
+            },
+            {
+              "packager": "arduino",
+              "name": "arduinoOTA",
+              "version": "1.3.0"
+            }
+          ]
+        },
+        {
+          "name": "Arduino megaAVR Boards",
+          "architecture": "megaavr",
+          "version": "1.8.3",
+          "category": "Arduino",
+          "help": {
+            "online": "http://www.arduino.cc/en/Reference/HomePage"
+          },
+          "url": "http://downloads.arduino.cc/cores/megaavr-1.8.3.tar.bz2",
+          "archiveFileName": "megaavr-1.8.3.tar.bz2",
+          "checksum": "SHA-256:9791d62551f1e6539769a026f903082344b8ae8b921c1796de94a2af368d866d",
+          "size": "856037",
+          "boards": [
+            {
+              "name": "Arduino Uno WiFi Rev2"
+            },
+            {
+              "name": "Arduino Nano Every"
+            }
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "arduino",
+              "name": "avr-gcc",
+              "version": "7.3.0-atmel3.6.1-arduino5"
+            },
+            {
+              "packager": "arduino",
+              "name": "avrdude",
+              "version": "6.3.0-arduino16"
+            },
+            {
+              "packager": "arduino",
+              "name": "arduinoOTA",
+              "version": "1.3.0"
+            }
+          ]
+        },
+        {
           "name": "Arduino SAM Boards (32-bits ARM Cortex-M3)",
           "architecture": "sam",
           "version": "1.6.2",
@@ -2823,6 +2899,128 @@
           "archiveFileName": "samd-1.8.1.tar.bz2",
           "checksum": "SHA-256:a8492b777f7f719fb5270f641b6b13b91ec242f5132b325ede2649dc2bda3117",
           "size": "2849370",
+          "boards": [
+            { "name": "Arduino MKR WiFi 1010" },
+            { "name": "Arduino/Genuino Zero" },
+            { "name": "Arduino/Genuino MKR1000" },
+            { "name": "Arduino MKRZERO" },
+            { "name": "Arduino MKR FOX 1200" },
+            { "name": "Arduino MKR WAN 1300" },
+            { "name": "Arduino MKR GSM 1400" },
+            { "name": "Arduino MKR NB 1500" },
+            { "name": "Arduino MKR Vidor 4000" },
+            { "name": "Arduino Nano 33 IoT" },
+            { "name": "Arduino M0 Pro" },
+            { "name": "Arduino M0" },
+            { "name": "Arduino Tian" },
+            { "name": "Adafruit Circuit Playground Express" }
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "arduino",
+              "name": "arm-none-eabi-gcc",
+              "version": "7-2017q4"
+            },
+            {
+              "packager": "arduino",
+              "name": "bossac",
+              "version": "1.7.0-arduino3"
+            },
+            {
+              "packager": "arduino",
+              "name": "openocd",
+              "version": "0.10.0-arduino7"
+            },
+            {
+              "packager": "arduino",
+              "name": "CMSIS",
+              "version": "4.5.0"
+            },
+            {
+              "packager": "arduino",
+              "name": "CMSIS-Atmel",
+              "version": "1.2.0"
+            },
+            {
+              "packager": "arduino",
+              "name": "arduinoOTA",
+              "version": "1.2.1"
+            }
+          ]
+        },
+        {
+          "name": "Arduino SAMD Boards (32-bits ARM Cortex-M0+)",
+          "architecture": "samd",
+          "version": "1.8.2",
+          "category": "Arduino",
+          "help": {
+            "online": "http://www.arduino.cc/en/Reference/HomePage"
+          },
+          "url": "http://downloads.arduino.cc/cores/samd-1.8.2.tar.bz2",
+          "archiveFileName": "samd-1.8.2.tar.bz2",
+          "checksum": "SHA-256:af75e0d37b63df3b92ecca60285aa59bab66e0bd03bcc4092ea3a1fab3df5258",
+          "size": "2894202",
+          "boards": [
+            { "name": "Arduino MKR WiFi 1010" },
+            { "name": "Arduino/Genuino Zero" },
+            { "name": "Arduino/Genuino MKR1000" },
+            { "name": "Arduino MKRZERO" },
+            { "name": "Arduino MKR FOX 1200" },
+            { "name": "Arduino MKR WAN 1300" },
+            { "name": "Arduino MKR GSM 1400" },
+            { "name": "Arduino MKR NB 1500" },
+            { "name": "Arduino MKR Vidor 4000" },
+            { "name": "Arduino Nano 33 IoT" },
+            { "name": "Arduino M0 Pro" },
+            { "name": "Arduino M0" },
+            { "name": "Arduino Tian" },
+            { "name": "Adafruit Circuit Playground Express" }
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "arduino",
+              "name": "arm-none-eabi-gcc",
+              "version": "7-2017q4"
+            },
+            {
+              "packager": "arduino",
+              "name": "bossac",
+              "version": "1.7.0-arduino3"
+            },
+            {
+              "packager": "arduino",
+              "name": "openocd",
+              "version": "0.10.0-arduino7"
+            },
+            {
+              "packager": "arduino",
+              "name": "CMSIS",
+              "version": "4.5.0"
+            },
+            {
+              "packager": "arduino",
+              "name": "CMSIS-Atmel",
+              "version": "1.2.0"
+            },
+            {
+              "packager": "arduino",
+              "name": "arduinoOTA",
+              "version": "1.2.1"
+            }
+          ]
+        },
+        {
+          "name": "Arduino SAMD Boards (32-bits ARM Cortex-M0+)",
+          "architecture": "samd",
+          "version": "1.8.3",
+          "category": "Arduino",
+          "help": {
+            "online": "http://www.arduino.cc/en/Reference/HomePage"
+          },
+          "url": "http://downloads.arduino.cc/cores/samd-1.8.3.tar.bz2",
+          "archiveFileName": "samd-1.8.3.tar.bz2",
+          "checksum": "SHA-256:ceac942d67c374e02c3f7586d17a7a4f0ef7bc022627577fd437af928cc21ad3",
+          "size": "2897712",
           "boards": [
             { "name": "Arduino MKR WiFi 1010" },
             { "name": "Arduino/Genuino Zero" },

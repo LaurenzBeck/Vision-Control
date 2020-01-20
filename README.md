@@ -1,6 +1,6 @@
 # Vision Control -  Bachelor Project Repository
 
-![logo1](C:\Users\Laurenz\Desktop\Vision-Control\Documentation\fh_logo.jpg)
+![](/Documentation/fh_logo.jpg)
 
 01.03.2019 - 21.01.2020
 
@@ -10,9 +10,9 @@
 
 ## Goal
 
-![](C:\Users\Laurenz\Desktop\Vision-Control\Documentation\setup_stand.jpg)
+![](/Documentation/setup_stand.jpg)
 
-![13_11_mae_plot (C:\Users\Laurenz\Desktop\Vision-Control\Documentation\13_11_mae_plot.PNG)](C:\Users\Laurenz\Desktop\13_11_mae_plot (1).PNG)
+![](/Documentation/13_11_mae_plot.PNG)
 
 This thesis is based on a project which took place during the fourth and fifth semesters of the Systems Engineering Bachelor's degree programme at the Carinthia University of Applied Science.
 
@@ -69,7 +69,7 @@ The presentation, project report, poster and the two  Bachelor Thesis can be fou
 
 ## Data Set
 
-![](C:\Users\Laurenz\Desktop\Vision-Control\CNN Training\images_train\1571743900.829366_0.1.png)
+![](/CNN Training/images_train/1571743900.829366_0.1.png)
 
 The following data sets were acquired for training:
 

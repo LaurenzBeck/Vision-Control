@@ -69,7 +69,7 @@ The presentation, project report, poster and the two  Bachelor Thesis can be fou
 
 ## Data Set
 
-![](/CNN Training/images_train/1571743900.829366_0.1.png)
+![](/CNN_Training/images_train/1571743900.829366_0.1.png)
 
 The following data sets were acquired for training:
 

@@ -85,8 +85,11 @@ These sets consists of folders containing the images, and DataFrames containing 
 
 If you have any questions or comments, feel free to contact me:
 
-Laurenz.Hundgeburth@edu.fh-kaernten.ac.at
+laurenzbeck@gmail.com
 
-<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
-<div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="HORIZONTAL" data-vanity="laurenz-hundgeburth-50156b219" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://at.linkedin.com/in/laurenz-hundgeburth-50156b219?trk=profile-badge">Laurenz Hundgeburth</a></div>
+<p>
+<a href=”https://www.linkedin.com/in/laurenz-hundgeburth-50156b219/”>
+<img src=”https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin&labelColor=blue">
+</a>
+</p>
               

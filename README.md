@@ -4,13 +4,13 @@
 
 01.03.2019 - 21.01.2020
 
----
-
-## Goal
-
 ![](/Documentation/setup_stand.jpg)
 
 ![](/Documentation/13_11_mae_plot.PNG)
+
+---
+
+## Goal
 
 This thesis is based on a project which took place during the fourth and fifth semesters of the Systems Engineering Bachelor's degree programme at the Carinthia University of Applied Science.
 
@@ -65,7 +65,7 @@ This folder includes both the microcontroller files for the motor control and th
 
 The presentation, project report, poster and the two  Bachelor Thesis can be found here.
 
-## Data Set
+## Data Set ![](https://zenodo.org/badge/DOI/10.5281/zenodo.5519956.svg)
 
 ![](/CNN_Training/images_train/1571743900.829366_0.1.png)
 
@@ -86,3 +86,7 @@ These sets consists of folders containing the images, and DataFrames containing 
 If you have any questions or comments, feel free to contact me:
 
 Laurenz.Hundgeburth@edu.fh-kaernten.ac.at
+
+<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+<div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="HORIZONTAL" data-vanity="laurenz-hundgeburth-50156b219" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://at.linkedin.com/in/laurenz-hundgeburth-50156b219?trk=profile-badge">Laurenz Hundgeburth</a></div>
+              

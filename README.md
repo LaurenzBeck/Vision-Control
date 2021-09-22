@@ -84,7 +84,7 @@ These sets consists of folders containing the images, and DataFrames containing 
 ## Contact
 
 <p>
-   <a href="www.linkedin.com/in/laurenz-hundgeburth-50156b219">
+   <a href="https://www.linkedin.com/in/laurenz-hundgeburth-50156b219">
       <img src="https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin&labelColor=blue">
    </a>
 </p>

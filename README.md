@@ -6,8 +6,6 @@
 
 ---
 
-[TOC]
-
 ## Goal
 
 ![](/Documentation/setup_stand.jpg)
@@ -70,6 +68,8 @@ The presentation, project report, poster and the two  Bachelor Thesis can be fou
 ## Data Set
 
 ![](/CNN_Training/images_train/1571743900.829366_0.1.png)
+
+The Dataset is available on Zenodo: https://zenodo.org/record/5519956
 
 The following data sets were acquired for training:
 
